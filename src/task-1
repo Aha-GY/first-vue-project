@@ -1,0 +1,100 @@
+<!-- Card.vue -->
+<template>
+  <div class="card">
+    <div class="avatar">
+      <img :src="avatarUrl" alt="Avatar">
+    </div>
+    <div class="content">
+      <h2>{{ cardData.name }}</h2>
+      <h3>{{ cardData.title }}</h3>
+      <p>{{ cardData.description }}</p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Card',
+  props: {
+    cardData: {
+      type: Object,
+      required: true
+    },
+    avatarUrl: {
+      type: String,
+      required: true
+    }
+  }
+}
+</script>
+
+<style scoped>
+.card {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.content {
+  flex: 1;
+}
+
+h2 {
+  margin: 0;
+}
+
+h3 {
+  margin: 5px 0;
+  color: #666;
+}
+
+p {
+  margin: 10px 0;
+}
+</style>
+
+
+
+
+<!-- ParentComponent.vue -->
+<template>
+    <div>
+      <Card :cardData="dummyData" :avatarUrl="avatarUrl" />
+    </div>
+  </template>
+  
+  <script>
+  import Card from './Card.vue';
+  
+  export default {
+    name: 'ParentComponent',
+    components: {
+      Card
+    },
+    data() {
+      return {
+        dummyData: {
+          name: 'John Doe',
+          title: 'Software Engineer',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+        },
+        avatarUrl: 'https://example.com/avatar.jpg'
+      };
+    }
+  }
+  </script>
+  

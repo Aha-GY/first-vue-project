@@ -1,0 +1,38 @@
+<!-- ParentComponent.vue -->
+<template>
+  <div>
+    <Card v-for="(item, index) in apiData" :key="index" :cardData="item" :avatarUrl="item.avatar_url" />
+  </div>
+</template>
+
+<script>
+import Card from './Card.vue';
+import axios from 'axios'; 
+
+export default {
+  name: 'ParentComponent',
+  components: {
+    Card
+  },
+  data() {
+    return {
+      apiData: []
+    };
+  },
+  created() {
+    this.fetchData(); 
+    
+  },
+  methods: {
+    fetchData() {
+      axios.get('https://akil-backend.onrender.com/') // Provided API endpoint
+        .then(response => {
+          this.apiData = response.data; // Set the fetched data to the apiData array
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }
+  }
+}
+</script>

@@ -1,0 +1,33 @@
+<template>
+  <div>
+    <div class="flex p-40 border border-2px">
+      <div class="w-1/3">
+        <img :src="photo" alt="img" class="pl-5" width="300" height="300">
+      </div>
+      <div>
+        <p>{{ address }}</p>
+        <h1 class="font-bold">Black Lion Hospital</h1>
+        <p>3 Kilometers Away</p>
+        <p>{{ phoneNumbers }}</p>
+        <p>{{ emails }}</p>
+        <p>+25111763498</p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    address: String,
+    availability: String,
+    photo: String,
+    phoneNumbers: String,
+    emails: String
+  }
+};
+</script>
+
+<style scoped>
+/* Add your scoped styles here */
+</style>

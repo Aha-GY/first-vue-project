@@ -1,0 +1,54 @@
+<template>
+  <header>
+    <div class="left">
+      <div class="flex">
+        <!-- <button @click="handleLogout">Logout</button> -->
+        <div class="w-1/3">
+          <img src="@/public/Frame.png" alt="img" class="pl-5" width="100" height="100">
+        </div>
+        <div class="w-1/3">
+          <img src="@/public/Logo....png" alt="img" class="pl-5" width="300" height="300">
+        </div>
+      </div>
+    </div>
+    <div class="center">
+      <nav>
+        <router-link to="/" class="font-bold">Home</router-link>
+        <router-link to="/hospitals">Hospitals</router-link>
+        <router-link to="/doctors">Doctors</router-link>
+      </nav>
+    </div>
+    <div class="right pr-5">
+      <button @click="handleLogout">Logout</button>
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+  methods: {
+    handleLogout() {
+      // Implement your logout functionality here
+    }
+  }
+};
+</script>
+
+<style scoped>
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+}
+</style>
